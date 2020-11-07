@@ -21,18 +21,17 @@
 
 ### products table
 
-| Column            | Type      | Option                         |
-| ----------------- | --------- | ------------------------------ | 
-| image             |           | null: false                    |
-| product_name      | string    | null: false                    |
-| description       | text      | null: false                    |
-| cost              | integer   | null: false                    |
-| product_category  | integer    | null: false                    |
-| product_condition | integer    | null: false                    |
-| delivery_fee      | integer    | null: false                    |
-| prefecture        | integer    | null: false                    |
-| arrival_date      | integer    | null: false                    |
-| users_id          | integer    | null: false, foreign_key: true |
+| Column               | Type       | Option                         |
+| -----------------    | ---------  | ------------------------------ | 
+| product_name         | string     | null: false                    |
+| description          | text       | null: false                    |
+| cost                 | integer    | null: false                    |
+| product_category_id  | integer    | null: false                    |
+| product_condition_id | integer    | null: false                    |
+| delivery_fee_id      | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
+| arrival_date_id      | integer    | null: false                    |
+| users_id             | integer    | null: false, foreign_key: true |
  
 
 ### Association
@@ -42,15 +41,15 @@
 
 ### sending_destination table
 
-| Column       |Type       | Option                        |
-| ------------ | --------  | ----------------------------- | 
-| zip_code     | integer   | null:false                    |
-| prefecture   | integer   | null:false                    |
-| city         | string    | null:false                    |
-| address      | string    | null:false                    |
-| building     | string    |                               | 
-| phone_number | integer   | null:false                    |
-| buyers_id    | integer   | null:false, foreign_key: true |
+| Column        |Type       | Option                        |
+| ------------  | --------  | ----------------------------- | 
+| zip_code      | integer   | null:false                    |
+| prefecture_id | integer   | null:false                    |
+| city          | string    | null:false                    |
+| address       | string    | null:false                    |
+| building      | string    |                               | 
+| phone_number  | integer   | null:false                    |
+| buyers_id     | integer   | null:false, foreign_key: true |
 
 
 ### Association
@@ -59,8 +58,8 @@
 
 ### buyers_table
 
-| Column      |Type       | Option                        |
-| ----------- | --------  | ----------------------------- | 
+| Column      |Type     | Option                        |
+| ----------- | ------- | ----------------------------- | 
 | users_id    | integer | null:false, foreign_key: true |
 | products_id | integer | null:false, foreign_key: true |
 
