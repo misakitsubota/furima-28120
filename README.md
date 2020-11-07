@@ -35,25 +35,25 @@
  
 
 ### Association
-- belongs_to :users
-- has_one :buyers
+- belongs_to :user
+- has_one :buyer
 
 
 ### sending_destination table
 
 | Column        |Type       | Option                        |
 | ------------  | --------  | ----------------------------- | 
-| zip_code      | integer   | null:false                    |
+| zip_code      | string    | null:false                    |
 | prefecture_id | integer   | null:false                    |
 | city          | string    | null:false                    |
 | address       | string    | null:false                    |
 | building      | string    |                               | 
-| phone_number  | integer   | null:false                    |
+| phone_number  | string    | null:false                    |
 | buyers_id     | integer   | null:false, foreign_key: true |
 
 
 ### Association
-- has_one :buyers
+- belongs_to :buyer
 
 
 ### buyers_table
@@ -65,6 +65,6 @@
 
 
 ### Association
-- belongs_to :users
-- has_one :products
+- belongs_to :user
+- belongs_to :product
 - has_one :sending_destination
