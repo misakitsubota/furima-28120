@@ -29,7 +29,8 @@ class User < ApplicationRecord
     validates :birth_day
   end
 
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'need to include both English letters and figures' 
+    validates :password, presence: true, length: { minimum: 6 }, format: { with: PASSWORD_REGEX, message: 'need to include both English letters and figures'}
+  # validates_format_of :password, with: PASSWORD_REGEX, message: 'need to include both English letters and figures' 
 
 end
 
