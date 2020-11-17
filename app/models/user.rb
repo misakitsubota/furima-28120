@@ -7,11 +7,9 @@ class User < ApplicationRecord
   has_many :products
   # has_many :buyers
 
-
-  NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
-  NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-
+  NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
+  NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
   with_options presence: true, format: { with: NAME_REGEX, message: 'is invalid. input full-width characters.' } do
     validates :first_name
@@ -29,8 +27,6 @@ class User < ApplicationRecord
     validates :birth_day
   end
 
-    validates :password, presence: true, length: { minimum: 6 }, format: { with: PASSWORD_REGEX, message: 'need to include both English letters and figures'}
-  # validates_format_of :password, with: PASSWORD_REGEX, message: 'need to include both English letters and figures' 
-
+  validates :password, presence: true, length: { minimum: 6 }, format: { with: PASSWORD_REGEX, message: 'need to include both English letters and figures' }
+  # validates_format_of :password, with: PASSWORD_REGEX, message: 'need to include both English letters and figures'
 end
-
