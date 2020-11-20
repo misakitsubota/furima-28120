@@ -69,6 +69,12 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password need to include both English letters and figures')
       end
+      it 'passwordが全角の場合は登録できない' do
+        @user.password = '全角文字123@test'
+        @user.password_confirmation = '全角文字123@test'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password need to include both English letters and figures')
+      end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
