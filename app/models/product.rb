@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   belongs_to :prefecture
   belongs_to :arrival_date
 
-  validates :product_name, :description, presence: true
+  validates :product_name, :description, :cost, presence: true
 
   validates :product_category, :product_condition, :delivery_fee, :prefecture, :arrival_date, numericality: { other_than: 1 }
 
