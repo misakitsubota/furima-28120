@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   has_one :buyer
   has_one_attached :image
 
+  validates :image, presence: true
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :product_category
   belongs_to :product_condition
@@ -12,6 +14,12 @@ class Product < ApplicationRecord
 
   validates :product_name, :description, :cost, presence: true
 
-  validates :product_category, :product_condition, :delivery_fee, :prefecture, :arrival_date, numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1, message: 'Select' } do
+    validates :product_category_id
+    validates :product_condition_id
+    validates :delivery_fee_id
+    validates :prefecture_id
+    validates :arrival_date_id
+  end
 
 end
