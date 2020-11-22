@@ -1,9 +1,8 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  
-  
+
   def index
-    @products = Product.order("created_at DEBC")
+    @products = Product.order('created_at DEBC')
   end
 
   def new
@@ -12,10 +11,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.valid? 
+    if @product.valid?
       @product.save
       redirect_to root_path
-    else 
+    else
       render :new
     end
   end

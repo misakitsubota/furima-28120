@@ -6,11 +6,11 @@ class Product < ApplicationRecord
   validates :image, presence: true
   validates :product_name, :description, presence: true
 
-  with_options presence:true do
-    validates :cost, format: { with: /\A[0-9]+\z/, message:"is invalid. Input half-width characters."}
+  with_options presence: true do
+    validates :cost, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
   end
 
-  validates :cost, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
+  validates :cost, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :product_category
@@ -26,5 +26,4 @@ class Product < ApplicationRecord
     validates :prefecture_id
     validates :arrival_date_id
   end
-
 end
