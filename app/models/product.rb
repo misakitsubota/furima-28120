@@ -4,6 +4,13 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   validates :image, presence: true
+  validates :product_name, :description, presence: true
+
+  with_options presence:true do
+    validates :cost, format: { with: /\A[0-9]+\z/, message:"is invalid. Input half-width characters."}
+  end
+
+  validates :cost, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :product_category
@@ -11,8 +18,6 @@ class Product < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :prefecture
   belongs_to :arrival_date
-
-  validates :product_name, :description, :cost, presence: true
 
   with_options numericality: { other_than: 1, message: 'Select' } do
     validates :product_category_id
