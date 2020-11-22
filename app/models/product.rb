@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   belongs_to :prefecture
   belongs_to :arrival_date
 
-  validates :image, :product_name, :description presence: true
+  validates :image, :product_name, :description, presence: true
   validates :cost, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
 
   with_options presence: true do
