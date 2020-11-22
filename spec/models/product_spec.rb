@@ -27,33 +27,33 @@ describe Product do
         @product.valid?
         expect(@product.errors.full_messages).to include("Product name can't be blank")
       end
-      it '商品の説明がないと登録できない' do
+      it '商品の説明が空では登録できない登録できない' do
         @product.description = ''
         @product.valid?
         expect(@product.errors.full_messages).to include("Description can't be blank")
       end
-      it 'カテゴリーの情報がないと登録できない' do
-        @product.product_category_id = ''
+      it 'カテゴリーの情報が１である場合は登録できない' do
+        @product.product_category_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include('Product category Select')
       end
-      it '商品の状態についての情報がないと登録できない' do
-        @product.product_condition_id = ''
+      it '商品の状態が１である場合は登録できない' do
+        @product.product_condition_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include('Product condition Select')
       end
-      it '配送料の負担についての情報がないと登録できない' do
-        @product.delivery_fee_id = ''
+      it '配送料の負担が１である場合は登録できない' do
+        @product.delivery_fee_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include('Delivery fee Select')
       end
-      it '発送元の地域についての情報がないと登録できない' do
-        @product.prefecture_id = ''
+      it '発送元の地域が１である場合は登録できない' do
+        @product.prefecture_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include('Prefecture Select')
       end
-      it '発送までの日数についての情報がないと登録できない' do
-        @product.arrival_date_id = ''
+      it '発送までの日数が１である場合は登録できない' do
+        @product.arrival_date_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include('Arrival date Select')
       end
