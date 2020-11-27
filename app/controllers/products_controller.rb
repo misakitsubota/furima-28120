@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.order("created_at DEBC")
+    @products = Product.all
   end
 
   def new
@@ -19,9 +20,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:image, :product_name, :description, :cost, :product_category_id, :product_condition_id, :delivery_fee_id, :prefecture_id, :arrival_date_id).merge(user_id: current_user.id)
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
