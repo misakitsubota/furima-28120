@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @product.product_name %>
     </h2>
     <div class='item-img-content'>
       <%= image_tag @product.image, class: "item-box-img" %>
@@ -65,7 +65,7 @@
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= "発送日の目安" %></td>
+          <td class="detail-value"><%= @product.arrival_date.name %></td>
         </tr>
       </tbody>
     </table>
