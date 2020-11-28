@@ -27,8 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(product_params)
-    if @product.valid?
+    if @product.update(product_params)
       redirect_to product_path(@product.id)
     else
       render :edit
