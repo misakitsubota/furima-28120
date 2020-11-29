@@ -1,0 +1,2 @@
+class BuyerSendingDestination < ApplicationRecord
+end
