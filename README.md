@@ -36,7 +36,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :buyer
+- has_one :order
 
 
 ### sending_destination table
@@ -53,10 +53,10 @@
 
 
 ### Association
-- belongs_to :buyer
+- belongs_to :order
 
 
-### buyers_table
+### orders_table
 
 | Column      |Type     | Option                        |
 | ----------- | ------- | ----------------------------- | 
