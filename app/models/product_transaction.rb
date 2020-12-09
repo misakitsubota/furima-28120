@@ -1,6 +1,6 @@
 class ProductTransaction
   include ActiveModel::Model
-  attr_accessor :user_id, :product_id, :zip_code, :prefecture_id, :city, :address, :building, :phone_number, :order_id, :token
+  attr_accessor :user_id, :product_id, :zip_code, :prefecture_id, :city, :address, :building, :phone_number, :token
   
   validates :city, :address, :token, :user_id, :product_id, presence: true
 
