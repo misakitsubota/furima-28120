@@ -1,8 +1,8 @@
 class ProductTransaction
   include ActiveModel::Model
-  attr_accessor :user_id, :product_id, :zip_code, :prefecture_id, :city, :address, :building, :phone_number, :order_id, :token
+  attr_accessor :user_id, :product_id, :zip_code, :prefecture_id, :city, :address, :building, :phone_number, :order_id 
   
-  validates :city, :address, :token, presence: true
+  validates :city, :address, :phone_number, presence: true
 
   with_options presence: true do
     validates :zip_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}

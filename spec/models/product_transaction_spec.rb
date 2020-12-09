@@ -9,12 +9,6 @@ RSpec.describe ProductTransaction, type: :model do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@product_transaction).to be_valid
     end
-
-    it 'tokenが空では登録できないこと' do
-      @product_transaction.token = nil
-      @product_transaction.valid?
-      expect(@product_transaction.errors.full_messages).to include("Token can't be blank")
-    end
     it '郵便番号が空だと保存できないこと' do
       @product_transaction.zip_code = nil
       @product_transaction.valid?
