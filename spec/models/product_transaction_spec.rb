@@ -72,6 +72,16 @@ RSpec.describe ProductTransaction, type: :model do
         @product_transaction.valid?
         expect(@product_transaction.errors.full_messages).to include("Phone number is invalid.")
       end
+      it 'user_idがないと保存できないこと' do
+        @product_transaction.user_id = nil
+        @product_transaction.valid?
+        expect(@product_transaction.errors.full_messages).to include("User can't be blank")
+      end
+      it 'product_idがないと保存できないこと' do
+        @product_transaction.product_id = nil
+        @product_transaction.valid?
+        expect(@product_transaction.errors.full_messages).to include("Product can't be blank")
+      end
     end
   end
 
